@@ -144,28 +144,36 @@
     <main>
       <h1 class="text-body-emphasis">SkeTi<i>k</i>Z: A Dataset for Sketch to Diagram</h1>
       <p class="fs-5 col-md-12">
-        In this paper, we introduce SkeTi<i>k</i>Z, a novel benchmark dataset designed for
-        generating diagrams from hand-drawn sketches. Diagrams are essential for
-        visually conveying complex ideas across various fields, yet creating high-quality
-        vector graphics with tools often demands significant manual effort and expertise.
-        While automating diagram generation from text has attracted attention, generating
-        diagrams from sketches remains largely unexplored due to insufficient datasets
-        pairing hand-drawn sketches with their corresponding codes. SkeTi<i>k</i>Z bridges
-        this gap by providing 3,231 pairs of hand-drawn sketches along with their reference
-        diagrams and corresponding Ti<i>k</i>Z codes. Our automatic and subjective evaluations
-        reveal the current limitations of state-of-the-art vision-and-language models
-        (VLMs) on this task, establishing SkeTi<i>k</i>Z as a valuable benchmark for future
-        research. Additionally, we developed an open-sourced, image-to-Ti<i>k</i>Z model,
-        ImgTi<i>k</i>Z, which shows significant improvement in generated diagrams compared
-        to LLaVA1.6, the best-performing open-source VLM of the same model size. Our
-        results demonstrate that leveraging a code-specific LLM and training with relevant
-        data effectively enhances performance. We make SkeTi<i>k</i>Z and ImgTi<i>k</i>Z publicly
-        available, hoping it will advance the development of models capable of accurately
-        generating diagrams from hand-drawn inputs.
+        We address the challenge of automatically generating high-quality vector diagrams
+from hand-drawn sketches. Vector diagrams are crucial for effectively
+communicating complex ideas across various fields, offering flexibility and scalability.
+Creating vector diagrams manually often requires significant effort and
+expertise, and automating this process can substantially reduce costs and time investment.
+Although recent research has made progress in generating diagrams
+from text descriptions, the task of converting hand-drawn sketches into vector
+diagrams remains largely unexplored. This gap is primarily due to the lack of
+datasets that pair hand-drawn sketches with their corresponding vector graphic
+codes. To address this challenge, we introduce  SkeTi<i>k</i>Z, a dataset containing
+3,231 pairs of hand-drawn sketches along with their reference diagrams and corresponding
+ Ti<i>k</i>Z codes. Our evaluations, both automatic and subjective, highlight
+the current limitations of state-of-the-art vision and language models (VLMs) on
+this task, establishing  SkeTi<i>k</i>Z as a key benchmark for future research in the
+conversion of sketches to diagrams. Furthermore, we have developed IMGTIkZ,
+an image-to-TikZ model that combines a 6.7B parameter code-specialized opensource
+large language model (LLM) with a pre-trained vision encoder. Despite
+its relatively modest size, ImgTi<i>k</i>Z achieves an accuracy comparable to more
+extensive models such as GPT-4o by incorporating two types of data augmentation:
+one that increases diagram variations and the other that enhances image
+diversity. We have empirically validated the effectiveness of both these augmentation
+techniques. Furthermore, we demonstrate that generating multiple candidates
+during inference and selecting the best one significantly improves accuracy.
+These findings provide valuable insights for future research on sketch-to-diagram
+conversion and may have broader implications for image-to-code generation
+tasks. 
       </p>
 
       <div class="mb-5">
-        <a href="https://github.com/sketikz/sketikz_public" class="btn btn-success btn-lg px-4">Download dataset</a>
+        <a href="" class="btn btn-success btn-lg px-4">Download dataset</a>
       </div>
 
       <hr class="col-3 col-md-2 mb-5">
