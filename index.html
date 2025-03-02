@@ -144,107 +144,122 @@
     <main>
       <h1 class="text-body-emphasis">SkeTi<i>k</i>Z: A Dataset for Sketch to Diagram</h1>
       <p class="fs-5 col-md-12">
-        We address the challenge of automatically generating high-quality vector diagrams
-from hand-drawn sketches. Vector diagrams are crucial for effectively
-communicating complex ideas across various fields, offering flexibility and scalability.
-Creating vector diagrams manually often requires significant effort and
-expertise, and automating this process can substantially reduce costs and time investment.
-Although recent research has made progress in generating diagrams
-from text descriptions, the task of converting hand-drawn sketches into vector
-diagrams remains largely unexplored. This gap is primarily due to the lack of
-datasets that pair hand-drawn sketches with their corresponding vector graphic
-codes. To address this challenge, we introduce  SkeTi<i>k</i>Z, a dataset containing
-3,231 pairs of hand-drawn sketches along with their reference diagrams and corresponding
- Ti<i>k</i>Z codes. Our evaluations, both automatic and subjective, highlight
-the current limitations of state-of-the-art vision and language models (VLMs) on
-this task, establishing  SkeTi<i>k</i>Z as a key benchmark for future research in the
-conversion of sketches to diagrams. Furthermore, we have developed IMGTIkZ,
-an image-to-TikZ model that combines a 6.7B parameter code-specialized opensource
-large language model (LLM) with a pre-trained vision encoder. Despite
-its relatively modest size, ImgTi<i>k</i>Z achieves an accuracy comparable to more
-extensive models such as GPT-4o by incorporating two types of data augmentation:
-one that increases diagram variations and the other that enhances image
-diversity. We have empirically validated the effectiveness of both these augmentation
-techniques. Furthermore, we demonstrate that generating multiple candidates
-during inference and selecting the best one significantly improves accuracy.
-These findings provide valuable insights for future research on sketch-to-diagram
-conversion and may have broader implications for image-to-code generation
-tasks. 
-      </p>
+
+We address the challenge of automatically generating high-quality vector diagrams  
+from hand-drawn sketches. Vector diagrams are essential for communicating complex ideas  
+across various fields, offering flexibility and scalability. While recent research has progressed  
+in generating diagrams from text descriptions, converting hand-drawn sketches into vector diagrams  
+remains largely unexplored due to the lack of suitable datasets.  
+
+To address this gap, we introduce <b>SkeTi<i>k</i>Z</b>, a dataset comprising 3,231 pairs  
+of hand-drawn sketches and their corresponding Ti<i>k</i>Z codes as well as reference diagrams.  
+Our evaluations reveal the limitations of state-of-the-art vision and language models (VLMs),  
+positioning <b>SkeTi<i>k</i>Z</b> as a key benchmark for future research in sketch-to-diagram conversion.  
+
+Along with <b>SkeTi<i>k</i>Z</b>, we present IMGTi<i>k</i>Z, an image-to-Ti<i>k</i>Z model  
+that integrates a 6.7B parameter code-specialized open-source large language model (LLM)  
+with a pretrained vision encoder. Despite its relatively compact size, IMGTi<i>k</i>Z  
+performs comparably to GPT-4o. This success is driven by using our two data augmentation techniques  
+and a multi-candidate inference strategy.  
+
+Our findings open promising directions for future research in sketch-to-diagram conversion  
+and broader image-to-code generation tasks. <b>SkeTi<i>k</i>Z</b> is publicly available.  
+
+     </p>
 
       <div class="mb-5">
-        <a href="" class="btn btn-success btn-lg px-4">Download dataset</a>
+        <a href="https://storage.googleapis.com/sketikz/sketch_images.tar.gz" class="btn btn-success btn-lg px-4">Download dataset</a>
       </div>
 
+
+      
+
+      
       <hr class="col-3 col-md-2 mb-5">
 
-      <div class="row g-5">
-        <div class="col-md-12">
-          <table class="table table-hover">
-            <caption>Table</caption>
-            <thead>
-              <tr>
-                <th>Models</th>
-                <th>Alignment</th>
-                <th>Quality</th>
-                <th>ImageSim</th>
-                <th>CodeSim</th>
-                <th>Compile Success (avg)</th>
-              </tr>
+<div class="row g-5">
+    <div class="col-md-12">
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th rowspan="2">Model</th>
+                    <th colspan="4" class="text-center">Automatic</th>
+                    <th colspan="2" class="text-center">Subjective</th>
+                </tr>
+                <tr>
+                    <th>ImageSim</th>
+                    <th>CodeSim</th>
+                    <th>CharSim</th>
+                    <th>CSR_avg</th>
+                    <th>Alignment</th>
+                    <th>Quality</th>
+                </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>GPT-4o</td>
-                <td>3.00</td>
-                <td>3.20</td>
-                <td>0.695</td>
-                <td>0.821</td>
-                <td>0.479</td>
-              </tr>
-              <tr>
-                <td>GPT-4o-mini</td>
-                <td>2.39</td>
-                <td>2.71</td>
-                <td>0.595</td>
-                <td>0.814</td>
-                <td>0.376</td>
-              </tr>
-              <tr>
-                <td>Claude (Sonnet)</td>
-                <td>3.32</td>
-                <td>3.54</td>
-                <td>0.753</td>
-                <td>0.813</td>
-                <td>0.544</td>
-              </tr>
-              <tr>
-                <td>LLaVa-Next</td>
-                <td>1.43</td>
-                <td>1.93</td>
-                <td>0.315</td>
-                <td>0.727</td>
-                <td>0.350</td>
-              </tr>
-              <tr>
-                <td>ImgTikZ-IG(Ours)</td>
-                <td>2.78</td>
-                <td>2.92</td>
-                <td>0.734</td>
-                <td>0.815</td>
-                <td>0.767</td>
-              </tr>
-              <tr>
-                <td>ImgTikZ-MCG(Ours)</td>
-                <td>3.13</td>
-                <td>3.30</td>
-                <td>0.821</td>
-                <td>0.822</td>
-                <td>0.799</td>
-              </tr>
+                <tr class="table-secondary">
+                    <td colspan="7"><strong>Closed models</strong></td>
+                </tr>
+                <tr>
+                    <td>GPT-4o</td>
+                    <td>0.695</td>
+                    <td>0.821</td>
+                    <td>0.611</td>
+                    <td>0.479</td>
+                    <td>3.00</td>
+                    <td>3.20</td>
+                </tr>
+                <tr>
+                    <td>GPT-4o-mini</td>
+                    <td>0.595</td>
+                    <td>0.814</td>
+                    <td>0.514</td>
+                    <td>0.376</td>
+                    <td>2.39</td>
+                    <td>2.71</td>
+                </tr>
+                <tr>
+                    <td>Claude 3.5 Sonnet</td>
+                    <td>0.753</td>
+                    <td>0.813</td>
+                    <td><strong>0.671</strong></td>
+                    <td>0.544</td>
+                    <td><strong>3.32</strong></td>
+                    <td><strong>3.54</strong></td>
+                </tr>
+                <tr class="table-secondary">
+                    <td colspan="7"><strong>Open-source models</strong></td>
+                </tr>
+                <tr>
+                    <td>LLava-Next</td>
+                    <td>0.315</td>
+                    <td>0.727</td>
+                    <td>0.206</td>
+                    <td>0.350</td>
+                    <td>1.43</td>
+                    <td>1.93</td>
+                </tr>
+                <tr>
+                    <td><i>IMGTi<i>k</i>Z-IG (ours)</i></td>
+                    <td>0.734</td>
+                    <td>0.815</td>
+                    <td>0.503</td>
+                    <td>0.767</td>
+                    <td>2.78</td>
+                    <td>2.92</td>
+                </tr>
+                <tr>
+                    <td><i>IMGTi<i>k</i>Z-MCG (ours)</i></td>
+                    <td><strong>0.821</strong></td>
+                    <td><strong>0.822</strong></td>
+                    <td>0.594</td>
+                    <td><strong>0.799</strong></td>
+                    <td>3.13</td>
+                    <td>3.30</td>
+                </tr>
             </tbody>
-          </table>
-        </div>
-      </div>
+        </table>
+    </div>
+</div>
 
     </main>
     <footer class="pt-5 my-5 text-body-secondary border-top">
