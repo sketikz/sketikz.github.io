@@ -244,6 +244,30 @@ and broader image-to-code generation tasks. <b>SkeTi<i>k</i>Z</b> is publicly av
 
       <hr class="col-3 col-md-2 mb-5">
 
+      <h2 class="text-body-emphasis">Proposed Method</h2>
+      <p class="fs-5 mb-4">
+        We present IMGTi<i>k</i>Z, an image-to-Ti<i>k</i>Z model that combines a 6.7B parameter 
+        code-specialized open-source large language model (LLM) with a pretrained vision encoder. 
+        Our model effectively bridges the gap between hand-drawn sketches and vector diagrams through 
+        a code-specific model architecture and innovative data augmentation techniques.
+      </p>
+
+      <div class="row align-items-center mb-5">
+          <div class="col-md-12">
+              <div class="svg-container">
+                  <object data="img/finetune.drawio.svg" type="image/svg+xml" class="img-fluid w-100" aria-label="IMGTikZ model architecture and fine-tuning process"></object>
+              </div>
+          </div>
+      </div>
+
+      <p class="fs-5 mb-5">
+        During inference, we propose a multi-candidate generation strategy (IMGTi<i>k</i>Z-MCG) that generates 
+        multiple diagram candidates and selects the best one, significantly improving the quality of the final output.
+        This approach ensures more robust and accurate vector diagram generation from hand-drawn sketches.
+      </p>
+
+      <hr class="col-3 col-md-2 mb-5">
+
       <h2 class="text-body-emphasis">Performance</h2>
       <p class="fs-5 mb-4">
         We evaluate our model using both automatic metrics and human evaluation.
