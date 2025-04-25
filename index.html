@@ -99,6 +99,17 @@
     color: #0080FF;
     }
     
+    .svg-container {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .svg-container object {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 
 
@@ -182,104 +193,121 @@ and broader image-to-code generation tasks. <b>SkeTi<i>k</i>Z</b> is publicly av
         <a href="" class="btn btn-success disabled btn-lg px-4">Code (coming soon)</a>
       </div>
 
-
-      
-
-      
       <hr class="col-3 col-md-2 mb-5">
 
-<div class="row g-5">
-    <div class="col-md-12">
-        <h2 class="text-body-emphasis">Performance</h2>
-        <p class="fs-5 mb-4">
-          We evaluate our model using both automatic metrics and human evaluation.
-          For automatic evaluation, we use ImageSim (visual similarity), CodeSim (code similarity),
-          CharSim (character-level similarity), and CSR_avg (average compilation success rate).
-          For subjective evaluation, we assess the similarity between generated diagrams and reference diagrams,
-          as well as the overall quality of the outputs.
-          Our model IMGTi<i>k</i>Z-MCG achieves comparable performance to GPT-4o.
-        </p>
-        <table class="table table-hover">
-            <thead class="table-light">
-                <tr>
-                    <th rowspan="2">Model</th>
-                    <th colspan="4" class="text-center">Automatic</th>
-                    <th colspan="2" class="text-center">Subjective</th>
-                </tr>
-                <tr>
-                    <th>ImageSim</th>
-                    <th>CodeSim</th>
-                    <th>CharSim</th>
-                    <th>CSR_avg</th>
-                    <th>Alignment</th>
-                    <th>Quality</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="table-secondary">
-                    <td colspan="7">Closed models</td>
-                </tr>
-                <tr>
-                    <td>GPT-4o</td>
-                    <td>0.695</td>
-                    <td>0.821</td>
-                    <td>0.611</td>
-                    <td>0.479</td>
-                    <td>3.00</td>
-                    <td>3.20</td>
-                </tr>
-                <tr>
-                    <td>GPT-4o-mini</td>
-                    <td>0.595</td>
-                    <td>0.814</td>
-                    <td>0.514</td>
-                    <td>0.376</td>
-                    <td>2.39</td>
-                    <td>2.71</td>
-                </tr>
-                <tr>
-                    <td>Claude 3.5 Sonnet</td>
-                    <td>0.753</td>
-                    <td>0.813</td>
-                    <td><strong>0.671</strong></td>
-                    <td>0.544</td>
-                    <td><strong>3.32</strong></td>
-                    <td><strong>3.54</strong></td>
-                </tr>
-                <tr class="table-secondary">
-                    <td colspan="7">Open-source models</td>
-                </tr>
-                <tr>
-                    <td>LLava-Next</td>
-                    <td>0.315</td>
-                    <td>0.727</td>
-                    <td>0.206</td>
-                    <td>0.350</td>
-                    <td>1.43</td>
-                    <td>1.93</td>
-                </tr>
-                <tr>
-                    <td><i>IMGTi<i>k</i>Z-IG (ours)</i></td>
-                    <td>0.734</td>
-                    <td>0.815</td>
-                    <td>0.503</td>
-                    <td>0.767</td>
-                    <td>2.78</td>
-                    <td>2.92</td>
-                </tr>
-                <tr>
-                    <td><i>IMGTi<i>k</i>Z-MCG (ours)</i></td>
-                    <td><strong>0.821</strong></td>
-                    <td><strong>0.822</strong></td>
-                    <td>0.594</td>
-                    <td><strong>0.799</strong></td>
-                    <td>3.13</td>
-                    <td>3.30</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+      <h2 class="text-body-emphasis">Motivation</h2>
+      <p class="fs-5 mb-4">
+        Vector diagrams are essential tools for communicating complex ideas across various fields, 
+        from scientific papers to technical documentation. While creating these diagrams traditionally 
+        requires expertise in specialized tools, hand-drawn sketches offer a more intuitive and accessible 
+        approach. However, converting these sketches into high-quality vector diagrams remains a challenge.
+      </p>
+
+      <div class="row align-items-center mb-5">
+          <div class="col-md-12">
+              <div class="svg-container">
+                  <object data="img/sketikz.drawio.svg" type="image/svg+xml" class="img-fluid w-100" aria-label="SkeTikZ workflow diagram"></object>
+              </div>
+          </div>
+      </div>
+
+      <p class="fs-5 mb-5">
+        Our approach bridges this gap by automatically converting hand-drawn sketches into 
+        Ti<i>k</i>Z code, which generates clean and professional vector diagrams. This not only 
+        saves time but also makes diagram creation more accessible to users who are not familiar 
+        with vector graphics tools or Ti<i>k</i>Z programming.
+      </p>
+
+      <hr class="col-3 col-md-2 mb-5">
+
+      <h2 class="text-body-emphasis">Performance</h2>
+      <p class="fs-5 mb-4">
+        We evaluate our model using both automatic metrics and human evaluation.
+        For automatic evaluation, we use ImageSim (visual similarity), CodeSim (code similarity),
+        CharSim (character-level similarity), and CSR_avg (average compilation success rate).
+        For subjective evaluation, we assess the similarity between generated diagrams and reference diagrams,
+        as well as the overall quality of the outputs.
+        Our model IMGTi<i>k</i>Z-MCG achieves comparable performance to GPT-4o.
+      </p>
+      <table class="table table-hover">
+          <thead class="table-light">
+              <tr>
+                  <th rowspan="2">Model</th>
+                  <th colspan="4" class="text-center">Automatic</th>
+                  <th colspan="2" class="text-center">Subjective</th>
+              </tr>
+              <tr>
+                  <th>ImageSim</th>
+                  <th>CodeSim</th>
+                  <th>CharSim</th>
+                  <th>CSR_avg</th>
+                  <th>Alignment</th>
+                  <th>Quality</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr class="table-secondary">
+                  <td colspan="7">Closed models</td>
+              </tr>
+              <tr>
+                  <td>GPT-4o</td>
+                  <td>0.695</td>
+                  <td>0.821</td>
+                  <td>0.611</td>
+                  <td>0.479</td>
+                  <td>3.00</td>
+                  <td>3.20</td>
+              </tr>
+              <tr>
+                  <td>GPT-4o-mini</td>
+                  <td>0.595</td>
+                  <td>0.814</td>
+                  <td>0.514</td>
+                  <td>0.376</td>
+                  <td>2.39</td>
+                  <td>2.71</td>
+              </tr>
+              <tr>
+                  <td>Claude 3.5 Sonnet</td>
+                  <td>0.753</td>
+                  <td>0.813</td>
+                  <td><strong>0.671</strong></td>
+                  <td>0.544</td>
+                  <td><strong>3.32</strong></td>
+                  <td><strong>3.54</strong></td>
+              </tr>
+              <tr class="table-secondary">
+                  <td colspan="7">Open-source models</td>
+              </tr>
+              <tr>
+                  <td>LLava-Next</td>
+                  <td>0.315</td>
+                  <td>0.727</td>
+                  <td>0.206</td>
+                  <td>0.350</td>
+                  <td>1.43</td>
+                  <td>1.93</td>
+              </tr>
+              <tr>
+                  <td><i>IMGTi<i>k</i>Z-IG (ours)</i></td>
+                  <td>0.734</td>
+                  <td>0.815</td>
+                  <td>0.503</td>
+                  <td>0.767</td>
+                  <td>2.78</td>
+                  <td>2.92</td>
+              </tr>
+              <tr>
+                  <td><i>IMGTi<i>k</i>Z-MCG (ours)</i></td>
+                  <td><strong>0.821</strong></td>
+                  <td><strong>0.822</strong></td>
+                  <td>0.594</td>
+                  <td><strong>0.799</strong></td>
+                  <td>3.13</td>
+                  <td>3.30</td>
+              </tr>
+          </tbody>
+      </table>
 
     </main>
     <footer class="pt-5 my-5 text-body-secondary border-top">
